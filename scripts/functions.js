@@ -31,19 +31,19 @@ function RandomFromArray(array) {
 function SubmitForm(e, message_form) {
 	e.preventDefault();
 
-	var message = message_form.querySelector('#msg').value;
+	var message = message_form.querySelector('#message').value;
 
-	alert("Sorry but this doesn't work yet. xD");
+	console.log(message)
 
-	// fetch('https://jsonplaceholder.typicode.com/posts/1', {
-	//     method: 'PUT',
-	//     body: JSON.stringify({
-	//         message: message
-	//     }),
-	//     headers: {
-	//         'Content-type': 'application/json; charset=UTF-8',
-	//     },
-	// })
-	//     .then((response) => response.json())
-	//     .then((json) => console.log(json));
+	fetch('http://localhost:8080/transactions', {
+	    method: 'POST',
+	    body: JSON.stringify({
+	        data: message
+	    }),
+	    headers: {
+	        'Content-type': 'application/json; charset=UTF-8',
+	    },
+	})
+	    .then((response) => response.json())
+	    .then((json) => console.log(json));
 }
